@@ -10,7 +10,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
-    <TypeScriptToolsVersion>1.0</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>1.4</TypeScriptToolsVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -23,19 +23,26 @@
     <Content Include="assets\logo-wide-72.png" />
     <Content Include="assets\logo-wide.svg" />
     <Content Include="index.html" />
-    <Content Include="lib\phaser.js" />
-    <Content Include="lib\phaser.min.js" />
-    <Content Include="packages.config" />
-    <None Include="lib\jquery-1.6.4-vsdoc.js" />
-    <Content Include="lib\jquery-1.6.4.js" />
-    <Content Include="lib\jquery-1.6.4.min.js" />
-    <Content Include="lib\jquery.signalR-2.2.0.js" />
-    <Content Include="lib\jquery.signalR-2.2.0.min.js" />
+    <None Include="lib\phaser.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="lib\phaser.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app.ts" />
-    <TypeScriptCompile Include="lib\phaser.d.ts" />
+    <None Include="lib\definitions\phaser.d.ts" />
+    <TypeScriptCompile Include="js\Configuration.ts" />
+    <TypeScriptCompile Include="js\states\GameState.ts" />
+    <TypeScriptCompile Include="js\PetriGame.ts" />
+    <TypeScriptCompile Include="js\states\PostGameState.ts" />
+    <TypeScriptCompile Include="js\states\PreGameState.ts" />
+    <None Include="lib\definitions\p2.d.ts" />
+    <None Include="lib\definitions\phaser.comments.d.ts" />
+    <None Include="lib\definitions\pixi.comments.d.ts" />
+    <None Include="lib\definitions\pixi.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <None Include="web.Debug.config">
@@ -106,6 +113,9 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
     <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <ExcludeGeneratedDebugSymbol>false</ExcludeGeneratedDebugSymbol>
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
